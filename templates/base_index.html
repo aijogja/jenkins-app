@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}    
+
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="/">Home</a></li>
+                <li role="presentation"><a href="/">About</a></li>
+                <li role="presentation" class="dropdown">
+                    <a href="#" data-toggle="dropdown"><span>Menu</span> <strong class="caret"></strong></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <li><a href="{% url 'list' %}"><span class="glyphicon glyphicon-list"></span> List Member</a></li>
+                        <li><a href="{% url 'add' %}"><span class="glyphicon glyphicon-plus-sign"></span> Add Member</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Jenkins App</h3>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+        <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block body %}
+    {% endblock %} 
+
+    {% include "footer.html"%}
+
+{% endblock %}

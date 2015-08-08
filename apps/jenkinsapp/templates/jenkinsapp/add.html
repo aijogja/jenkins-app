@@ -1,0 +1,25 @@
+{% extends "base_index.html" %}
+
+{% block body %}
+<h4 class="text-muted">Add Member</h4>
+<form method="post" action="">
+    {% csrf_token %}
+    {% for field in form.visible_fields %}
+    <div class="form-group">
+        <label>{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger alert-validation">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ error|escape }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    {% endfor %}
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Save">
+    </div>
+</form>
+{% endblock %}

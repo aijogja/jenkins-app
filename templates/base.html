@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jenkins App{% if subtitle %} - {{subtitle}}{% endif %}</title>
+<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" type="text/css">
+<!-- HTML5 shim for IE backwards compatibility -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body class ="body">
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+</body>
+
+</html>

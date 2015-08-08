@@ -1,0 +1,29 @@
+{% extends "base_index.html" %}
+
+{% block body %}
+<h4 class="text-muted">List Member</h4>
+<table class="table table-hover table-striped table-condensed table-bordered">
+    <thead style="font-weight: bold;" class="text-center">
+        <tr>
+            <td class="col-md-1">No</td>
+            <td>Name</td>
+            <td>Email</td>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        {% if members %}
+            {% for member in members %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{member.name}}</td>
+                <td>{{member.email}}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="3"><em>There is no data yet.</em></td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
